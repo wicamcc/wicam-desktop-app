@@ -1,0 +1,96 @@
+<html>
+<head>
+	<link rel="stylesheet" type="text/css" href="semantic/dist/semantic.min.css">
+	<script type="text/javascript" src="jquery-3.1.1.min.js"></script>
+	<script src="semantic/dist/semantic.min.js"></script>
+	<script type="text/javascript" src="wicam.js"></script>
+	<script type="text/javascript" src="main.js"></script>
+
+	<script>
+	var path = './';
+	var fs = require('fs');
+
+	fs.watch(path, function() {
+		if (location)
+			location.reload();
+	});
+	</script>
+</head>
+<body>
+	<!--  Templates, Modals -->
+
+	<div class="ui modal modal-settings">
+		<i class="close icon"></i>
+		<div class="header">
+			Add [Hotspot] Open Wicam
+		</div>
+		<div class="content">
+			<form class="ui form">
+				<div class="field">
+					<label>WiCam name</label>
+					<input type="text" name="wicam-name" placeholder="WiCam-......">
+				</div>
+				<div class="field">
+					<label>WiCam password</label>
+					<input type="text" name="wicam-password" placeholder="Wicam Password">
+				</div>
+				<div class="field">
+					<label>Home WiFi SSID</label>
+					<input type="text" name="wicam-home-ssid" placeholder="Home WiFi SSID">
+				</div>
+				<div class="field">
+					<label>Home WiFi password</label>
+					<input type="text" name="wicam-home-password" placeholder="Home WiFi Password">
+				</div>
+			</form>
+		</div>
+		<div class="actions">
+			<div class="ui black deny button">
+				Cancel
+			</div>
+			<div class="ui positive right labeled icon button">
+				Save and Reboot
+				<i class="checkmark icon"></i>
+			</div>
+		</div>
+	</div>
+
+	<div class="ui page dimmer dimmer-settings">
+		<div class="content">
+			<div class="center">Connecting to Wicam...</div>
+		</div>
+	</div>
+	<!-- UI layouts -->
+	
+	<div class="ui two column grid wicam-grid">
+		<div class="column">
+			<div class="ui fluid card">
+				<div class="image">
+
+				</div>
+				<div class="content">
+					<div class="header">Open Wicam</div>
+					<div class="description">
+
+					</div>
+				</div>
+				<div class="ui two bottom attached buttons">
+					<div class="ui button action-scan">
+						<i class="add icon"></i>
+						Discover Home Wicam
+					</div>
+					<div class="ui button action-hotspot">
+						<i class="add icon"></i>
+						Add [Hotspot] Wicam
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="ui stackable three column grid view-wicams">
+
+	</div>
+	
+</body>
+</html>
